@@ -9,6 +9,9 @@ class User(models.Model):
     class Meta:
         verbose_name_plural = '用户表'
 
+    def __str__(self):
+        return self.name
+
 
 class MeetingRoom(models.Model):
     name = models.CharField(max_length=32, verbose_name='会议室名称')
@@ -18,6 +21,8 @@ class MeetingRoom(models.Model):
     class Meta:
         verbose_name_plural = '会议室表'
 
+    def __str__(self):
+        return self.name
 
 class Booking(models.Model):
     user_info = models.ForeignKey(to='User', verbose_name='用户')
@@ -27,7 +32,7 @@ class Booking(models.Model):
         (1, '8:00-9:00'),
         (2, '9:00-10:00'),
         (3, '10:00-11:00'),
-        (4, '11:00-12:00)'),
+        (4, '11:00-12:00'),
         (5, '12:00-13:00'),
         (6, '13:00-14:00'),
         (7, '14:00-15:00'),
